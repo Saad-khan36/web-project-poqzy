@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paqzy - Contact Us</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/svg+xml">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center the content horizontally */
+      align-items: center; /* Center the content vertically */
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 300px; /* Limit maximum width */
+    }
+
+    .product-info {
+      width: 100%;
+      max-width: 600px; /* Limit maximum width */
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .product-info h2 {
+      margin-top: 0;
+    }
+
+    .product-info p {
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart, .buy-now {
+      padding: 10px 20px;
+      background-color:  #7FFFD4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover, .buy-now:hover {
+      background-color: #66c6a2; /* Darker color when hovering over the button */
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    /* Header adjustments */
+    header {
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-search {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-search input {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-action-btn {
+      padding: 5px 10px;
+      margin-left: 20px;
+      background-color: #0c100f;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-action-btn ion-icon {
+      margin-right: 5px;
+    }
+
+    .header-action-btn:hover {
+      background-color: #66c6a2;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .product-image,
+      .product-info {
+        width: 100%;
+        max-width: none;
+      }
+
+      .header-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-action-btn {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header" data-header>
+    <div class="container">
+      <div class="header-search">
+        <input type="search" name="search" placeholder="Search Product..." class="input-field">
+        <button class="search-btn" aria-label="Search">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+      </div>
+
+      <a href="#" class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo" width="130" height="31">
+      </a>
+
+      <div class="header-actions">
+        <button class="header-action-btn">
+          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+          <p class="header-action-label">Sign In</p>
+        </button>
+
+        <button class="header-action-btn">
+          <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
+          <p class="header-action-label">Cart</p>
+          <div class="btn-badge green" aria-hidden="true">0</div>
+        </button>
+
+        <button class="header-action-btn">
+          <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+          <p class="header-action-label">Wishlist</p>
+          <div class="btn-badge" aria-hidden="true">0</div>
+        </button>
+      </div>
+
+      <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo" width="130" height="31">
+          </a>
+          <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li><a href="index.html" class="navbar-link">Home</a></li>
+          <li><a href="shop.html" class="navbar-link">Shop</a></li>
+          <li><a href="About.html" class="navbar-link">About</a></li>
+          <li><a href="Blog.html" class="navbar-link">Blog</a></li>
+          <li><a href="Contact.html" class="navbar-link">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="margin-top: 40px;">
+    <div class="container">
+      <div class="product-image">
+        <img src="Product Images/samp7.jpg" alt="Product Image" style="width: 100%;">
+      </div>
+      <div class="product-info">
+        <h2>Phone Case</h2>
+        <data value="899">Rs 899</data>
+        <p>Introducing our stylish Mobile Case - the ultimate fusion of fashion and protection! 📱💫 Elevate your device with our sleek and durable case, designed to safeguard your phone while making a bold style statement. 💥 Crafted from high-quality materials, it provides reliable defense against bumps, scratches, and everyday wear and tear. 🔒 With its slim profile and precise cutouts, our case offers easy access to all ports and buttons without adding extra bulk. ✨ Whether you prefer classic elegance or vibrant designs, we have the perfect case to complement your personality and elevate your look. 🌈 Express yourself and protect your investment in style with our irresistible collection of mobile cases today! 🛡️💖</p>
+
+        <div class="buttons-container">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="buy-now">Buy It Now</button>
+        </div>
+        <p>Left in quantity: <strong>3</strong></p>
+        <p>Delivery Time: <strong>7 working days</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <!-- Footer top content -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- Footer bottom content -->
+        <p class="copyright">
+          &copy; 2023 <a href="#">Paqzy</a>. All Rights Reserved
+        </p>
+        <ul class="footer-bottom-list">
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="footer-bottom-link">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="#" class="footer-bottom-link">Sitemap</a>
+          </li>
+        </ul>
+        <div class="payment">
+          <p class="payment-title">We Support</p>
+          <img src="readme-images/payment-img.png" alt="Online payment logos" class="payment-img">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="/script.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    function addToCart() {
+      // Here you can implement the logic to add the product to the cart
+      alert("Product added to cart!");
+    }
+  </script>
+
+</body>
+
+</html>

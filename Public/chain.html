@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paqzy - Contact Us</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/svg+xml">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Jost', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 350px;
+      margin-right: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-info h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .product-info data {
+      font-size: 22px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .product-info p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart,
+    .buy-now {
+      padding: 12px 25px;
+      background-color: #7FFFD4;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .add-to-cart:hover,
+    .buy-now:hover {
+      background-color: #4fd1c5;
+      transform: translateY(-2px);
+    }
+
+    .product-info p strong {
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .product-image,
+      .product-info {
+        width: 100%;
+        max-width: none;
+        margin: 0 0 20px;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #333;
+      padding: 15px 0;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .header .logo img {
+      width: 150px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-action-btn {
+      background: none;
+      color: #fff;
+      border: none;
+      margin-left: 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .header-action-btn ion-icon {
+      font-size: 24px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #222;
+      padding: 40px 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #7FFFD4;
+      text-decoration: none;
+    }
+
+    .footer-bottom-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .footer-bottom-list li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .footer-bottom-list li a {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo" width="150">
+      </a>
+
+      <div class="header-actions">
+        <button class="header-action-btn">
+          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+          Sign In
+        </button>
+
+        <button class="header-action-btn">
+          <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
+          Cart
+          <div class="btn-badge green" aria-hidden="true">0</div>
+        </button>
+
+        <button class="header-action-btn">
+          <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+          Wishlist
+          <div class="btn-badge" aria-hidden="true">0</div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="margin-top: 60px;">
+    <div class="container">
+      <div class="product-image">
+        <img src="Product Images/samp4.avif" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <h2>Gold Chain</h2>
+        <data value="8000">Rs 8000</data>
+        <p>Introducing our exquisite Chain - the epitome of elegance and sophistication! 💎 Elevate your style game with this timeless accessory that effortlessly adds a touch of glamour to any outfit. ✨ Crafted with precision and attention to detail, each link shines with brilliance, catching the light at every angle. ✨ Whether worn solo for a chic minimalist look or layered for a bold statement, our Chain exudes confidence and refinement. 👑 Made from high-quality materials, it promises durability and lasting beauty for years to come. 💫 Perfect for any occasion, from casual brunches to glamorous soirées, this versatile piece is a must-have addition to your jewelry collection. 💖 Make a statement of luxury and style with our Chain - the ultimate accessory for the modern trendsetter! 🌟</p>
+
+        <div class="buttons-container">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="buy-now">Buy It Now</button>
+        </div>
+
+        <p>Left in quantity: <strong>3</strong></p>
+        <p>Delivery Time: <strong>7 working days</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2023 <a href="#">Paqzy</a>. All Rights Reserved</p>
+    <ul class="footer-bottom-list">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+      <li><a href="#">Sitemap</a></li>
+    </ul>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="/script.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

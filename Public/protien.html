@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paqzy - Product Page</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/svg+xml">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header .logo img {
+      width: 130px;
+      height: auto;
+    }
+
+    .product-page {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+      max-width: 400px;
+      flex: 1;
+      margin-right: 30px;
+    }
+
+    .product-info {
+      flex: 2;
+      max-width: 600px;
+    }
+
+    .product-info h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .product-info data {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff6f61;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .product-info p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .add-to-cart,
+    .buy-now {
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart {
+      background-color: #007bff;
+    }
+
+    .buy-now {
+      background-color: #28a745;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0056b3;
+    }
+
+    .buy-now:hover {
+      background-color: #218838;
+    }
+
+    .product-details {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 30px;
+    }
+
+    .product-details p {
+      margin-bottom: 5px;
+    }
+
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .product-page {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .product-info {
+        text-align: center;
+      }
+
+      .buttons-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo">
+      </a>
+    </div>
+  </header>
+
+  <!-- Product Page -->
+  <div class="product-page">
+    <div class="product-image">
+      <img src="Product Images/fitnessProd.avif" alt="Product Image" style="width: 100%; border-radius: 8px;">
+    </div>
+    <div class="product-info">
+      <h2>Whey Protein</h2>
+      <data value="5999">Rs 5999</data>
+      <p>Introducing our premium Whey Protein - the ultimate fuel for your fitness journey! 💪🥛 Packed with pure protein power, each scoop delivers a delicious blend of essential amino acids to support muscle growth and recovery. 🏋️‍♂️💥 Crafted from the finest ingredients, our whey protein is ultra-filtered for maximum purity and solubility, ensuring a smooth and creamy texture with every shake. 🌟 Whether you're hitting the gym, powering through a busy day, or simply looking to boost your protein intake, our whey protein is the perfect solution. 🚀 Plus, with a variety of mouthwatering flavors to choose from, including rich chocolate, creamy vanilla, and decadent strawberry, there's something to satisfy every craving. 🍫🍓🥤 Elevate your workouts and unlock your full potential with our Whey Protein - the secret weapon for achieving your fitness goals! 💥🔥</p>
+
+      <div class="buttons-container">
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+        <button class="buy-now" onclick="buyNow()">Buy It Now</button>
+      </div>
+
+      <div class="product-details">
+        <p><strong>Left in Quantity:</strong> 3</p>
+        <p><strong>Delivery Time:</strong> 7 working days</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2023 <a href="#">Paqzy</a>. All Rights Reserved</p>
+    <p>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> | <a href="#">Sitemap</a>
+    </p>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script>
+    function addToCart() {
+      alert("Product added to cart!");
+      // Logic to add the product to the cart
+    }
+
+    function buyNow() {
+      alert("Proceeding to checkout!");
+      // Logic to handle buying the product immediately
+    }
+  </script>
+
+</body>
+
+</html>

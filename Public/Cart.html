@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px; /* Increase the width of the container */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h4 {
+            color: #333;
+        }
+
+        #customer-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #customer-form input, #customer-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #68b792;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #222d39;
+        }
+
+        #total {
+            margin-top: 20px;
+        }
+
+        #total-amount {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .product {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .product img {
+            max-width: 80px;
+            max-height: 80px;
+            margin-right: 20px;
+            float: left;
+        }
+
+        .product-info {
+            overflow: hidden;
+        }
+
+        .product-description {
+            margin-top: 10px;
+        }
+
+        .product-info div {
+            width: calc(100% - 120px);
+            float: left;
+        }
+
+        /* Center the logo */
+        .logo {
+            text-align: center;
+        }
+
+        .logo img {
+            max-width: 100px; /* Adjust the size of the logo */
+            margin-bottom: 5px;
+        }
+
+        /* Style for the buttons */
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+            
+        }
+
+        .buttons a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #68b792;
+            color: #fff;
+            text-decoration: none;
+            
+            border-radius: 3px;
+        }
+
+        .buttons a:hover {
+            background-color: #00b3b0;
+        }
+
+
+
+        .remove-btn {
+  padding: 10px 20px;
+  background-color: #ff6347; /* Tomato color */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #ff4500; /* Slightly darker tomato color on hover */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy Logo">
+    </div>
+    <div class="container">
+        <h1>Checkout</h1>
+        <div id="cart">
+            <!-- Cart items will be displayed here dynamically -->
+        </div>
+        <div id="customer-details">
+            <h4>Customer Details</h4>
+            <form id="customer-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <!-- Other fields like city, province, country can be added here -->
+            </form>
+        </div>
+        <a href="confirm.html"><button onclick="completePurchase()">Complete Purchase</button></a>
+        
+
+    </div>
+
+    <!-- Buttons for Home and Shop -->
+    <div class="buttons">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+    </div>
+
+    <script>
+        
+        // Cart array to store added products
+        let cart = [];
+
+
+         function addToCart(productId) {
+          const product = products.find(p => p.id === productId);
+          if (product) {
+            // Add product to cart array
+            cart.push(product);
+            displayCart(); // Update display of cart items
+            calculateTotal(); // Update total amount after adding item
+          }
+        }
+
+
+        fetch('/get-cart')
+  .then(response => response.json())
+  .then(cart => {
+    // Now 'cart' contains the cart data from your server
+    // You can use this data to display the cart items on the page
+    const cartDiv = document.getElementById('cart');
+    cartDiv.innerHTML = ''; // Clear current cart display
+
+    // For each product in cart, create HTML and append to cartDiv
+    cart.forEach(product => {
+      const productElement = document.createElement('div');
+      productElement.classList.add('product');
+      productElement.innerHTML = `
+  <h4>${product.name}</h4>
+  <div class="product-info">
+    <img src="${product.image}" alt="${product.name}">
+    <div>
+      <p>Price: PKR ${product.price}</p>
+      <button class="remove-btn" onclick="removeFromCart('${product._id}')">Remove from Cart</button>
+    </div>
+  </div>
+`;
+      cartDiv.appendChild(productElement);
+    });
+  });
+
+
+  function removeFromCart(productId) {
+  fetch('/remove-from-cart', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ _id: productId }),
+  })
+  .then(response => response.json())
+  .then(result => {
+    // Remove the product from the cart in client-side JavaScript
+    cart = cart.filter(product => product._id !== productId);
+    // Refresh the cart display after product is removed
+    displayCart(cart);
+  });
+}
+
+        // Display cart items
+        function displayCart() {
+            const cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = '';
+
+            // Logic to display items in the cart
+            // This could involve iterating over items in the cart and displaying them dynamically
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCart();
+            calculateTotal();
+        });
+
+        document.getElementById('customer-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Logic to handle form submission
+        });
+
+
+
+        function sendThankYouEmail(email, name) {
+  fetch('/send-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, name }),
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(result.message);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+
+
+        function completePurchase() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const address = document.getElementById('address').value;
+  const phone = document.getElementById('phone').value;
+
+  // Include product names in the cart data
+  const cartWithProductNames = cart.map(product => ({
+    ...product,
+    productName: product.name,
+  }));
+
+  const purchaseData = {
+    customerDetails: { name, email, address, phone },
+    cart: cartWithProductNames,
+  };
+
+  fetch('/complete-purchase', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(purchaseData),
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(result.message);
+    // Handle successful purchase here, e.g. show a success message and clear the cart
+
+    // Call the sendThankYouEmail function
+    sendThankYouEmail(email, name);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+
+    </script>
+</body>
+</html>

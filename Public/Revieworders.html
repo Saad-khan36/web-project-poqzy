@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Paqzy</title>
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            min-width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: #fff;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            transition: width 0.3s;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-menu a i {
+            margin-right: 10px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-sidebar {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-profile span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #2c3e50;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .content-area {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        .content-area h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Orders Table Styles */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .orders-table th,
+        .orders-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .orders-table th {
+            background-color: #f2f2f2;
+        }
+
+        .orders-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Buttons Container */
+        .buttons-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+        }
+
+        /* View Order Details Button */
+        .view-order-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .view-order-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Delete Order Button */
+        .delete-order-btn {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .delete-order-btn:hover {
+            background-color: #bd2130;
+        }
+
+        /* Highlighted Row Styles */
+        .highlight {
+            background-color: #ffe6b3;
+            /* You can adjust the color as needed */
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 30%;
+                min-width: 80px;
+            }
+
+            .main-content {
+                margin-left: 30%;
+            }
+
+            .sidebar-menu {
+                padding: 10px;
+            }
+
+            .sidebar-menu li {
+                margin-bottom: 10px;
+            }
+
+            .sidebar-menu a {
+                padding: 10px;
+            }
+
+            .sidebar-header h1 {
+                font-size: 1.2rem;
+            }
+
+            .user-profile {
+                margin-right: 10px;
+            }
+
+            .user-profile img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .user-profile span {
+                font-size: 0.8rem;
+            }
+
+            .logout-btn {
+                font-size: 0.8rem;
+            }
+
+            .content-area {
+                padding: 15px;
+            }
+
+            .content-area h2 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .orders-table th,
+            .orders-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .view-order-btn,
+            .delete-order-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+
+            .buttons-container {
+                flex-wrap: wrap;
+            }
+
+            .buttons-container > * {
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>Admin Panel</h1>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="Admin.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+            <li><a href="ManageProducts.html"><i class="fas fa-shopping-cart"></i> Manage Products</a></li>
+            <li><a href="Revieworders.html"><i class="fas fa-clipboard-list"></i> Review Orders</a></li>
+            <li><a href="Shipments.html"><i class="fas fa-shipping-fast"></i> Shipments</a></li>
+            <li><a href="Reports.html"><i class="fas fa-file-alt"></i> Reports</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-left">
+                <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <img src="Product Images/Admin.jpg" alt="Admin Profile">
+                    <span>Admin</span>
+                </div>
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+        <section class="content-area">
+            <h2>Review Orders</h2>
+            <!-- Orders Table -->
+            <div style="overflow-x: auto;">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Order ID</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dummy Data -->
+                        <tr>
+                            <td><input type="checkbox" name="order" value="1"></td>
+                            <td>123456</td>
+                            <td>John Doe</td>
+                            <td>123 Street, City</td>
+                            <td>Product A</td>
+                            <td>$50</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="order" value="2"></td>
+                            <td>789012</td>
+                            <td>Jane Smith</td>
+                            <td>456 Road, Town</td>
+                            <td>Product B</td>
+                            <td>$30</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="order" value="3"></td>
+                            <td>345678</td>
+                            <td>Michael Johnson</td>
+                            <td>789 Avenue, Village</td>
+                            <td>Product C</td>
+                            <td>$20</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Buttons Container -->
+            <div class="buttons-container">
+                <!-- View Order Details Button -->
+                <button class="view-order-btn">View Order Details</button>
+                <!-- Delete Order Button -->
+                <button class="delete-order-btn">Delete Order</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutBtn = document.querySelector('.logout-btn');
+            logoutBtn.addEventListener('click', function () {
+                window.location.href = 'index.html';
+            });
+
+            const viewOrderBtn = document.querySelector('.view-order-btn');
+            const deleteOrderBtn = document.querySelector('.delete-order-btn');
+
+            viewOrderBtn.addEventListener('click', function () {
+                const checkboxes = document.querySelectorAll('input[name="order"]:checked');
+                checkboxes.forEach(function (checkbox) {
+                    const row = checkbox.closest('tr');
+                    row.classList.add('highlight');
+                    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+
+            deleteOrderBtn.addEventListener('click', function () {
+                const checkboxes = document.querySelectorAll('input[name="order"]:checked');
+                checkboxes.forEach(function (checkbox) {
+                    const row = checkbox.closest('tr');
+                    row.parentNode.removeChild(row);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

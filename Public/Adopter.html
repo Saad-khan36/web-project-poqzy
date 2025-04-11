@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paqzy - Adapter</title>
+
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+    }
+
+    .product-image {
+      flex: 1 1 300px;
+      max-width: 400px;
+      margin: 20px;
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product-info {
+      flex: 1 1 400px;
+      max-width: 600px;
+      margin: 20px;
+    }
+
+    .product-info h2 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .product-info data {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #16a085;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .product-info p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .add-to-cart,
+    .buy-now {
+      padding: 12px 24px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .add-to-cart {
+      background-color: #16a085;
+      color: #fff;
+    }
+
+    .add-to-cart:hover {
+      background-color: #128c7e;
+    }
+
+    .buy-now {
+      background-color: #ff6b6b;
+      color: #fff;
+    }
+
+    .buy-now:hover {
+      background-color: #e55050;
+    }
+
+    header, footer {
+      background-color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      padding: 40px 20px 20px;
+    }
+
+    .footer-bottom-link {
+      margin: 0 10px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer-bottom-link:hover {
+      color: #16a085;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px 10px;
+      }
+
+      .product-image,
+      .product-info {
+        margin: 10px 0;
+      }
+
+      .buttons-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .add-to-cart,
+      .buy-now {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container" style="justify-content: space-between;">
+      <a href="#"><img src="readme-images/PAQZY Shop.jpg" alt="Paqzy Logo" width="130"></a>
+      <div>
+        <input type="search" placeholder="Search Product..." style="padding: 8px; border-radius: 6px; border: 1px solid #ccc;">
+        <button style="padding: 8px 12px; border: none; background: #16a085; color: white; border-radius: 6px;">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="product-image">
+        <img src="Product Images/sampl1.png" alt="Product Image">
+      </div>
+      <div class="product-info">
+        <h2>Charger Adopter</h2>
+        <data value="4800">Rs 4800</data>
+        <p>Introducing our sleek and efficient Charger Adapter 🌟 Charge up your devices with lightning speed and unparalleled convenience! 🔋 With its compact design, this adapter is your perfect on-the-go companion, fitting seamlessly into your pocket or bag. 🎒</p>
+        <p>Compatible with a wide range of devices, from smartphones to tablets and beyond, it's the versatile solution you've been searching for. ⚡️ Say goodbye to the frustration of slow charging and hello to seamless power wherever you are! ✨</p>
+
+        <div class="buttons-container">
+          <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+          <button class="buy-now">Buy It Now</button>
+        </div>
+
+        <p>Left in quantity: <strong>9</strong></p>
+        <p>Delivery Time: <strong>7 working days</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2023 <a href="#" style="color:#16a085;">Paqzy</a>. All Rights Reserved</p>
+    <div style="margin-top: 10px;">
+      <a href="#" class="footer-bottom-link">Privacy Policy</a>|
+      <a href="#" class="footer-bottom-link">Terms & Conditions</a>|
+      <a href="#" class="footer-bottom-link">Sitemap</a>
+    </div>
+    <div style="margin-top: 20px;">
+      <p>We Support</p>
+      <img src="readme-images/payment-img.png" alt="Payment Logos" style="max-width: 100px;">
+    </div>
+  </footer>
+
+  <script>
+    function addToCart() {
+      alert("Product added to cart!");
+    }
+  </script>
+</body>
+
+</html>

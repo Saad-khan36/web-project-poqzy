@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paqzy - Explore Discover Shop</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/svg+xml">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Header Section */
+    header {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    /* Logo */
+    .logo img {
+      width: 130px;
+      height: auto;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .navbar-list {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-link:hover {
+      color: #4CAF50;
+    }
+
+    /* Search Bar */
+    .header-search {
+      display: flex;
+      align-items: center;
+      background-color: #f1f1f1;
+      border-radius: 25px;
+      padding: 5px 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .header-search input {
+      border: none;
+      background-color: transparent;
+      padding: 10px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .search-btn {
+      background-color: transparent;
+      border: none;
+      color: #4CAF50;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .search-btn:hover {
+      color: #45a049;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-action-btn {
+      background-color: transparent;
+      border: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .header-action-btn:hover {
+      color: #4CAF50;
+    }
+
+    .header-action-btn ion-icon {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .btn-badge {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+
+    /* Mobile Menu */
+    .nav-open-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-list {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .nav-open-btn {
+        display: block;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-color: #333;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      .nav-open-btn span {
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        margin: 5px 0;
+        border-radius: 5px;
+      }
+
+      .nav-open-btn.open + .navbar {
+        display: flex;
+      }
+
+      .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="index.html" class="navbar-link">Home</a></li>
+          <li><a href="shop.html" class="navbar-link">Shop</a></li>
+          <li><a href="About.html" class="navbar-link">About</a></li>
+          <li><a href="Blog.html" class="navbar-link">Blog</a></li>
+          <li><a href="Contact.html" class="navbar-link">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <div class="header-search">
+            <input type="search" name="search" placeholder="Search Product...">
+            <button class="search-btn" aria-label="Search">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+          </div>
+
+          <a href="signin.html">
+            <button class="header-action-btn">
+              <ion-icon name="person-outline"></ion-icon>
+              <p class="header-action-label">Sign In</p>
+            </button>
+          </a>
+
+          <button class="header-action-btn">
+            <ion-icon name="cart-outline"></ion-icon>
+            <p class="header-action-label">Cart</p>
+            <div class="btn-badge green">0</div>
+          </button>
+
+          <button class="header-action-btn">
+            <ion-icon name="heart-outline"></ion-icon>
+            <p class="header-action-label">Wishlist</p>
+            <div class="btn-badge">0</div>
+          </button>
+        </div>
+      </nav>
+
+      <button class="nav-open-btn" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Welcome to Paqzy</h1>
+          <h3>Your one-stop destination for all your shopping needs</h3>
+          <a href="shop.html">
+            <button class="btn btn-primary">Shop Now</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Section -->
+    <section class="service">
+      <div class="container">
+        <ul class="service-list">
+          <li class="service-item">
+            <div class="service-item-icon">
+              <img src="Product Images/service-icon-1.svg" alt="Service icon">
+            </div>
+            <div class="service-content">
+              <p class="service-item-title">Free Shipping</p>
+              <p class="service-item-text">On All Orders Over 3000</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <div class="service-item-icon">
+              <img src="Product Images/service-icon-2.svg" alt="Service icon">
+            </div>
+            <div class="service-content">
+              <p class="service-item-title">Easy Returns</p>
+              <p class="service-item-text">30 Day Returns Policy</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <div class="service-item-icon">
+              <img src="Product Images/service-icon-3.svg" alt="Service icon">
+            </div>
+            <div class="service-content">
+              <p class="service-item-title">Secure Payment</p>
+              <p class="service-item-text">100% Secure Guarantee</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <div class="service-item-icon">
+              <img src="Product Images/service-icon-4.svg" alt="Service icon">
+            </div>
+            <div class="service-content">
+              <p class="service-item-title">24/7 Support</p>
+              <p class="service-item-text">We are here for you anytime</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Paqzy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

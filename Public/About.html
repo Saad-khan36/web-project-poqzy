@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Paqzy - About</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/png"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Combined CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header {
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 20px 0;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .navbar {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar-list {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .navbar-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar-link:hover {
+      color: #007BFF;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .header-btn {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+    }
+
+    .about-section {
+      background: url('readme-images/cool-black-desk-desktop-wallpaper-backgrounds.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 80px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .about-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      animation: slideInLeft 1s ease-in-out;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .payment-methods {
+      margin-top: 20px;
+    }
+
+    .payment-methods img {
+      width: 180px;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo" width="130" height="31"/>
+      </a>
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li><a href="index.html" class="navbar-link">Home</a></li>
+          <li><a href="shop.html" class="navbar-link">Shop</a></li>
+          <li><a href="About.html" class="navbar-link">About</a></li>
+          <li><a href="Blog.html" class="navbar-link">Blog</a></li>
+          <li><a href="Contact.html" class="navbar-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="signin.html" class="header-btn">
+          <ion-icon name="person-outline"></ion-icon> Sign In
+        </a>
+        <a href="#" class="header-btn">
+          <ion-icon name="cart-outline"></ion-icon> Cart (0)
+        </a>
+        <a href="#" class="header-btn">
+          <ion-icon name="heart-outline"></ion-icon> Wishlist (0)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <main>
+    <section class="about-section">
+      <div class="about-container">
+        <h2 class="about-title">About Us!</h2>
+        <div class="about-content">
+          <p>
+            Welcome to our dropshipping store! We aim to provide high-quality products and exceptional service to our customers. Our team is dedicated to ensuring your shopping experience is enjoyable and hassle-free.
+          </p>
+          <p>
+            With a wide range of products available, from electronics to fashion and home goods, we have something for everyone. Shop with confidence knowing that your satisfaction is our top priority.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 Paqzy. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+      <div class="payment-methods">
+        <p>We Support</p>
+        <img src="readme-images/payment-img.png" alt="Payment Methods" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

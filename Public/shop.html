@@ -1,0 +1,735 @@
+<header class="header" data-header>
+  <div class="container header-container">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo" width="130" height="51">
+    </a>
+
+    <!-- Search Bar (as Form) -->
+    <form action="search-results.html" method="GET" class="header-search">
+      <input 
+        type="search" 
+        name="query" 
+        placeholder="Search Product..." 
+        class="input-field" 
+        required
+      >
+      <button type="submit" class="search-btn" aria-label="Search">
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+    </form>
+
+    <!-- Action Buttons -->
+    <div class="header-actions">
+
+      <a href="signin.html" class="header-action-btn">
+        <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+        <span class="header-action-label">Sign In</span>
+      </a>
+
+      <button class="header-action-btn">
+        <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+        <span class="header-action-label">Search</span>
+      </button>
+
+      <button id="cartButton" class="header-action-btn">
+        <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
+        <span class="header-action-label">Cart</span>
+        <span class="btn-badge green">0</span>
+      </button>
+
+      <button class="header-action-btn">
+        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+        <span class="header-action-label">Wishlist</span>
+        <span class="btn-badge">0</span>
+      </button>
+
+    </div>
+
+    <!-- Menu Toggle Button -->
+    <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" data-navbar>
+      <ul class="navbar-list">
+        <li><a href="index.html" class="navbar-link">Home</a></li>
+        <li><a href="shop.html" class="navbar-link">Shop</a></li>
+        <li><a href="About.html" class="navbar-link">About</a></li>
+        <li><a href="Blog.html" class="navbar-link">Blog</a></li>
+        <li><a href="Contact.html" class="navbar-link">Contact</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <main>
+
+    <section class="section category">
+        <div class="container">
+
+          <ul class="category-list">
+
+            <li class="category-item">
+              <a href="#" class="btn btn-secondary btn-sm">Beauty</a>
+                <figure class="category-banner">
+                    <img src="Product Images/beauty.jpg" alt="Beauty" loading="lazy" width="600" height="300" class="w-full">
+                </figure>
+                
+            </li>
+            
+
+            <li class="category-item">
+              <a href="#" class="btn btn-secondary">Fitness</a>
+              <figure class="category-banner">
+                <img src="Product Images/fitness.webp" alt="Fitness" loading="lazy" width="600" height="400"
+                  class="w-100">
+              </figure>
+
+            </li>
+
+            <li class="category-item">
+              <a href="#" class="btn btn-secondary">Kitchen & Home Essentials</a>
+              <figure class="category-banner">
+                <img src="Product Images/kitcehn.jpg" alt="Kitchen & Home Essentials" loading="lazy" width="600" height="400"
+                  class="w-100">
+              </figure>
+            </li>
+
+            <li class="category-item">
+              <a href="#" class="btn btn-secondary">Gadgets</a>
+              <figure class="category-banner">
+                <img src="Product Images/gadgets.avif" alt="Gadgets" loading="lazy" width="600"
+                  height="400" class="w-100">
+              </figure>
+            </li>
+
+            <li class="category-item">
+              <a href="#" class="btn btn-secondary">Jewelry</a>
+              <figure class="category-banner">
+                <img src="Product Images\jewels.jpg" alt="Jewelry" loading="lazy" width="600" height="400"
+                  class="w-100">
+              </figure>
+            </li>
+
+           
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PRODUCT
+      -->
+
+      <section class="section product">
+        <div class="container">
+
+          <h1 class="h2 section-title">All Products</h1>
+
+          <ul class="filter-list">
+
+           
+
+          </ul>
+
+          <ul class="product-list">
+
+            <li>
+              <a href="Adopter.html">
+
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                    
+      <!-- 
+        - #PRODUCT1
+      -->
+
+                    
+                    <img src="Product Images/sampl1.png" alt="s1" loading="lazy" width="600"
+                      height="400" class="w-100">
+                  </a>
+
+                  <div class="card-badge red"> -25%</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Charger Adopter</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="4800">Rs 4800</data>
+
+                    <data value="6200">Rs 6,200 PKR</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+
+              
+      <!-- 
+        - #PRODUCT2
+      -->
+
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="makeup.html">
+                    <img src="Product Images\makeupKit.jpg" alt="s2" loading="lazy" width="600"
+                      height="400" class="w-100">
+                  </a>
+
+                  <div class="card-badge green"> New</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Make-Up Kit</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="2500">Rs 2500</data>
+                    <data value="62.00">Rs 3500</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  
+      <!-- 
+        - #PRODUCT3
+      -->
+
+                  <a href="Watch.html">
+                    <img src="Product Images/samp3.webp" alt="s3" loading="lazy"
+                      width="600" height="400" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Apple Watch</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="5000">Rs 5000</data>
+                    <data value="10000">Rs 10000</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="chain.html">
+                    <img src="Product Images/samp4.avif" alt="Sample4" loading="lazy" width="600"
+                      height="400" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Gold Chain</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="8000">Rs 8000</data>
+                    <data value="6000">Rs 6000</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="earing.html">
+                    <img src="Product Images/samp5.webp" alt="SAMPLE 5" loading="lazy" width="600"
+                      height="400" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Earings</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="4999">Rs 4999</data>
+                    <data value="7999">Rs 7999</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="dagger.html">
+                    <img src="Product Images\knifr.webp" alt="SAMP 6" loading="lazy" width="600"
+                      height="400" class="w-100">
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+<div class="card-content">
+  <h3 class="h4 card-title">
+    <a href="#">Knife</a>
+  </h3>
+
+  <div class="card-price">
+    <data value="5999">Rs 5999</data>
+
+    <data value="3999">Rs 3999</data>
+  </div>
+</div>
+
+</div>
+</li>
+
+<li>
+<div class="product-card">
+
+<figure class="card-banner">
+
+  <a href="mobileCase.html">
+    <img src="Product Images/samp7.jpg" alt="sanple 7" loading="lazy" width="600"
+      height="400" class="w-100">
+  </a>
+
+  <div class="card-actions">
+
+    <button class="card-action-btn" aria-label="Quick view">
+      <ion-icon name="eye-outline"></ion-icon>
+    </button>
+
+    <button class="card-action-btn cart-btn">
+      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+      <p>Add to Cart</p>
+    </button>
+
+    <button class="card-action-btn" aria-label="Add to Whishlist">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+
+  </div>
+
+</figure>
+
+<div class="card-content">
+  <h3 class="h4 card-title">
+    <a href="#">Phone Case</a>
+  </h3>
+
+  <div class="card-price">
+    <data value="899">Rs 899</data>
+
+    <data value="1299">Rs 1299</data>
+  </div>
+</div>
+
+</div>
+</li>
+
+<li>
+<div class="product-card">
+
+<figure class="card-banner">
+  <a href="rolex.html">
+    <img src="Product Images\samp8.jpg" alt="sample 8" loading="lazy" width="600"
+      height="400" class="w-100">
+  </a>
+
+  <div class="card-actions">
+
+    <button class="card-action-btn" aria-label="Quick view">
+      <ion-icon name="eye-outline"></ion-icon>
+    </button>
+
+    <button class="card-action-btn cart-btn">
+      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+      <p>Add to Cart</p>
+    </button>
+
+    <button class="card-action-btn" aria-label="Add to Whishlist">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+
+  </div>
+
+</figure>
+
+<div class="card-content">
+  <h3 class="h4 card-title">
+    <a href="#">Rolex</a>
+  </h3>
+
+  <div class="card-price">
+    <data value="12999">Rs 12999</data>
+
+    <data value="15999">Rs 15999</data>
+  </div>
+</div>
+
+</div>
+</li>
+
+<li>
+<div class="product-card">
+
+<figure class="card-banner">
+
+  <a href="airpods.html">
+    <img src="Product Images/samp9.webp" alt="SAMPLE 10" loading="lazy" width="600"
+      height="400" class="w-100">
+  </a>
+
+  <div class="card-actions">
+
+    <button class="card-action-btn" aria-label="Quick view">
+      <ion-icon name="eye-outline"></ion-icon>
+    </button>
+
+    <button class="card-action-btn cart-btn">
+      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+      <p>Add to Cart</p>
+    </button>
+
+    <button class="card-action-btn" aria-label="Add to Whishlist">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+
+  </div>
+
+</figure>
+
+<div class="card-content">
+  <h3 class="h4 card-title">
+    <a href="#">Airpods</a>
+  </h3>
+
+  <div class="card-price">
+    <data value="2999">Rs 2999</data>
+
+  </div>
+</div>
+
+</div>
+</li>
+
+<li>
+<div class="product-card">
+
+<figure class="card-banner">
+
+  <a href="protien.html">
+    <img src="Product Images\fitnessProd.avif" alt="sample 11" loading="lazy" width="600"
+      height="400" class="w-100">
+  </a>
+
+  <div class="card-badge green">New</div>
+
+  <div class="card-actions">
+
+    <button class="card-action-btn" aria-label="Quick view">
+      <ion-icon name="eye-outline"></ion-icon>
+    </button>
+
+    <button class="card-action-btn cart-btn">
+      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+      <p>Add to Cart</p>
+    </button>
+
+    <button class="card-action-btn" aria-label="Add to Whishlist">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+
+  </div>
+
+</figure>
+
+<div class="card-content">
+  <h3 class="h4 card-title">
+    <a href="#">Whey Protien</a>
+  </h3>
+
+  <div class="card-price">
+    <data value="5999">Rs 5999</data>
+  </div>
+</div>
+
+</div>
+</li>
+
+</ul>
+
+</div>
+</section>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <!-- Footer top content -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <!-- Footer bottom content -->
+        <p class="copyright">
+          &copy; 2023 <a href="#">Paqzy</a>. All Rights Reserved
+        </p>
+        <ul class="footer-bottom-list">
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="footer-bottom-link">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="#" class="footer-bottom-link">Sitemap</a>
+          </li>
+        </ul>
+        <div class="payment">
+          <p class="payment-title">We Support</p>
+          <img src="readme-images/payment-img.png" alt="Online payment logos" class="payment-img">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="/script.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+
+  // Find the 'Add to Cart' button and attach a click event listener
+// Find the 'Add to Cart' button and attach a click event listener
+// Find all 'Add to Cart' buttons and attach a click event listener to each
+document.querySelectorAll('.card-action-btn.cart-btn').forEach(function(button) {
+  button.addEventListener('click', function() {
+    // Select the badge element
+    var badge = document.querySelector('#cartButton .btn-badge');
+    // Get the current badge count and increment it
+    var count = parseInt(badge.textContent) || 0;
+    badge.textContent = count + 1;
+
+    // Show a notification
+    alert('Product added to cart!');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+      // Get the cart button by its ID
+      const cartButton = document.getElementById('cartButton');
+  
+      // Add click event listener to the cart button
+      cartButton.addEventListener('click', function() {
+        // Redirect to cart.html
+        window.location.href = 'cart.html';
+      });
+    });
+
+
+
+    document.querySelectorAll('.card-action-btn.cart-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const productCard = button.closest('.product-card');
+    const productName = productCard.querySelector('.h4.card-title a').textContent;
+    const productPrice = productCard.querySelector('.card-price data').getAttribute('value');
+    const productImage = productCard.querySelector('.card-banner img').getAttribute('src');
+
+    const product = { name: productName, price: productPrice, image: productImage };
+
+    // Send a request to your server to add the product to the cart
+    fetch('/add-to-cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      
+      body: JSON.stringify(product),
+    });
+  });
+});
+
+
+document.querySelector('.search-btn').addEventListener('click', function() {
+  let input = document.querySelector('.input-field').value.toLowerCase();
+  let productCards = document.querySelectorAll('.product-card');
+
+  productCards.forEach(card => {
+    let title = card.querySelector('.card-title a').textContent.toLowerCase();
+    if (title.indexOf(input) > -1) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
+
+
+  </script>
+
+
+</body>
+
+</html>

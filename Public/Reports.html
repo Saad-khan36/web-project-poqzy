@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Paqzy</title>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            min-width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: #fff;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            transition: width 0.3s;
+        }
+
+        .sidebar.collapsed {
+            width: 30%; /* Adjusted width when collapsed */
+            min-width: 80px; /* Adjusted minimum width */
+        }
+
+        .sidebar-header {
+            padding: 20px;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-menu a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .sidebar-menu a i {
+            margin-right: 10px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .main-content.collapsed {
+            margin-left: 30%; /* Adjusted margin when sidebar is collapsed */
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-sidebar {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-profile span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #2c3e50;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .content-area {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .content-area h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow charts to wrap to the next line */
+            gap: 20px; /* Add gap between charts */
+        }
+
+        .chart {
+            width: 100%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add space between charts */
+        }
+
+        .chart h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 30%; /* Sidebar width when minimized */
+                min-width: 80px; /* Adjusted minimum width */
+            }
+
+            .main-content {
+                margin-left: 30%; /* Adjusted margin when sidebar is minimized */
+            }
+
+            .sidebar-menu {
+                padding: 10px;
+            }
+
+            .sidebar-menu li {
+                margin-bottom: 10px;
+            }
+
+            .sidebar-menu a {
+                padding: 10px;
+            }
+
+            .sidebar-header h1 {
+                font-size: 1.2rem;
+            }
+
+            .user-profile {
+                margin-right: 10px;
+            }
+
+            .user-profile img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .user-profile span {
+                font-size: 0.8rem;
+            }
+
+            .logout-btn {
+                font-size: 0.8rem;
+            }
+
+            .content-area {
+                padding: 15px;
+            }
+
+            .content-area h2 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
+            .chart {
+                width: calc(50% - 20px); /* Take 50% of the width minus gap */
+            }
+            .chart {
+    max-width: 100%; /* Ensure charts don't overflow their containers */
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add space between charts */
+}
+
+.chart h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>Admin Panel</h1>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="Admin.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+            <li><a href="ManageProducts.html"><i class="fas fa-shopping-cart"></i> Manage Products</a></li>
+            <li><a href="Revieworders.html"><i class="fas fa-clipboard-list"></i> Review Orders</a></li>
+            <li><a href="Shipments.html"><i class="fas fa-shipping-fast"></i> Shipments</a></li>
+            <li><a href="Reports.html"><i class="fas fa-file-alt"></i> Reports</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-left">
+                <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <img src="Product Images/Admin.jpg" alt="Admin Profile">
+                    <span>Admin</span>
+                </div>
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+        
+        <div class="content-area">
+            <h2 class="analytics-heading">Analytics Overview</h2>
+            <div class="chart-container">
+                <div class="chart">
+                    <!-- Total Sales Chart -->
+                    <h3>Total Sales</h3>
+                    <canvas id="total-sales-chart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart">
+                    <!-- Sessions Chart -->
+                    <h3>Sessions</h3>
+                    <canvas id="sessions-chart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart">
+                    <!-- Total Orders Chart -->
+                    <h3>Total Orders</h3>
+                    <canvas id="total-orders-chart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart">
+                    <!-- Orders to Fulfil Chart -->
+                    <h3>Orders to Fulfil</h3>
+                    <canvas id="orders-to-fulfil-chart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart">
+                    <!-- Payments to Capture Chart -->
+                    <h3>Payments to Capture</h3>
+                    <canvas id="payments-to-capture-chart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const logoutBtn = document.querySelector('.logout-btn');
+                const sidebar = document.querySelector('.sidebar');
+                const mainContent = document.querySelector('.main-content');
+                const toggleSidebar = document.querySelector('.toggle-sidebar');
+
+                toggleSidebar.addEventListener('click', function () {
+                    sidebar.classList.toggle('collapsed');
+                    mainContent.classList.toggle('collapsed');
+                });
+
+                logoutBtn.addEventListener('click', function () {
+                    window.location.href = 'index.html';
+                });
+            });
+        </script>
+    </main>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        // Data for charts
+        const totalSalesData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Total Sales',
+                data: [20000, 30000, 25000, 35000, 40000, 45000],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const sessionsData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Sessions',
+                data: [1500, 1800, 2000, 2200, 2500, 2800],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const totalOrdersData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Total Orders',
+                data: [100, 120, 130, 150, 170, 200],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const ordersToFulfilData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Orders to Fulfil',
+                data: [10, 15, 20, 25, 30, 35],
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const paymentsToCaptureData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Payments to Capture',
+                data: [5, 10, 15, 20, 25, 30],
+                backgroundColor: 'rgba(255, 205, 86, 0.2)',
+                borderColor: 'rgba(255, 205, 86, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Render charts
+        window.onload = function () {
+            // Total Sales Chart
+            const totalSalesCtx = document.getElementById('total-sales-chart').getContext('2d');
+            new Chart(totalSalesCtx, {
+                type: 'line',
+                data: totalSalesData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Sessions Chart
+            const sessionsCtx = document.getElementById('sessions-chart').getContext('2d');
+            new Chart(sessionsCtx, {
+                type: 'line',
+                data: sessionsData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Total Orders Chart
+            const totalOrdersCtx = document.getElementById('total-orders-chart').getContext('2d');
+            new Chart(totalOrdersCtx, {
+                type: 'line',
+                data: totalOrdersData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Orders to Fulfil Chart
+            const ordersToFulfilCtx = document.getElementById('orders-to-fulfil-chart').getContext('2d');
+            new Chart(ordersToFulfilCtx, {
+                type: 'line',
+                data: ordersToFulfilData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Payments to Capture Chart
+            const paymentsToCaptureCtx = document.getElementById('payments-to-capture-chart').getContext('2d');
+            new Chart(paymentsToCaptureCtx, {
+                type: 'line',
+                data: paymentsToCaptureData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

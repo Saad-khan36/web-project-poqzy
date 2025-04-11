@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paqzy - Blog</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="readme-images/favicon-32x32.png" type="image/svg+xml">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Jost', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    header .logo img {
+      width: 130px;
+    }
+
+    .header-actions button {
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      margin-left: 15px;
+    }
+
+    .header-actions button:hover {
+      color: #ff6347;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Blog Post Styling */
+    .blog-post {
+      padding: 50px 0;
+      background: url('readme-images/cool-black-desk-desktop-wallpaper-backgrounds.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .blog-post .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: slideInLeft 1s;
+    }
+
+    .blog-meta p {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .blog-content {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+      animation: fadeInUp 1s;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    footer {
+      background-color: #f8f8f8;
+      padding: 20px 0;
+    }
+
+    footer .footer-bottom-list {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    footer .footer-bottom-link {
+      color: #333;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    footer .footer-bottom-link:hover {
+      color: #ff6347;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-actions {
+        display: none;
+      }
+
+      footer .footer-bottom-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="readme-images/PAQZY Shop.jpg" alt="Paqzy logo" width="130" height="31">
+      </a>
+      <div class="header-actions">
+        <a href="signin.html">
+          <button>
+            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+            <p>Sign In</p>
+          </button>
+        </a>
+        <button>
+          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          <p>Search</p>
+        </button>
+        <button>
+          <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
+          <p>Cart</p>
+        </button>
+        <button>
+          <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+          <p>Wishlist</p>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="blog-post">
+      <div class="container">
+        <h2>Dropshipping: A Beginner's Guide</h2>
+        <div class="blog-meta">
+          <p>Posted on <time datetime="2024-05-14">May 14, 2024</time> by Admin</p>
+        </div>
+        <div class="blog-content">
+          <p>If you're new to e-commerce, you might have heard about dropshipping as a business model. In this blog post, we'll provide you with a beginner's guide to dropshipping and how you can start your own dropshipping business.</p>
+          <p>Dropshipping is a retail fulfillment method where a store doesn't keep the products it sells in stock. Instead, when a store sells a product, it purchases the item from a third party and has it shipped directly to the customer. As a result, the merchant never sees or handles the product.</p>
+          <p>This business model offers several advantages, including low startup costs, the ability to sell a wide range of products without inventory, and flexibility in managing the business from anywhere with an internet connection.</p>
+          <p>To start a dropshipping business, you'll need to follow these steps:</p>
+          <ul>
+            <li>Choose a niche market and research product ideas.</li>
+            <li>Find reliable suppliers and establish partnerships.</li>
+            <li>Set up an online store using an e-commerce platform like Shopify or WooCommerce.</li>
+            <li>Optimize your website for search engines and create compelling product descriptions.</li>
+            <li>Market your store through digital marketing channels such as social media, email marketing, and influencer partnerships.</li>
+            <li>Monitor your sales and customer feedback to continuously improve your business.</li>
+          </ul>
+          <p>By following these steps and staying committed to learning and adapting, you can build a successful dropshipping business that generates passive income and allows you to pursue your entrepreneurial dreams.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 <a href="#">Paqzy</a>. All Rights Reserved</p>
+      <ul class="footer-bottom-list">
+        <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+        <li><a href="#" class="footer-bottom-link">Terms & Conditions</a></li>
+        <li><a href="#" class="footer-bottom-link">Sitemap</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
